@@ -1,0 +1,424 @@
+@import "menu.scss";
+.pagename-section{
+   width: 100%;
+   background-color: $primary-color;
+   padding: 55px 0;
+   padding-top: 100px;
+
+   @media (max-width: 992px) {
+     margin-top: 55px;
+   }
+
+   @media (max-width: 576px) {
+     padding-top: 137px;
+     margin-top: 30px;
+   }
+
+   h1{
+      font-family: $secondary-font;
+      font-size: 38px;
+      line-height: 46px;
+
+      color: $light-color;
+   }
+}
+
+.scroll-to-section{
+   background-color: $primary-color;
+   padding-bottom: 100px;
+   margin-bottom: 150px;
+
+   a{
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 19px;
+      text-decoration: none;
+
+      color: $light-color !important;
+      opacity: 0.5;
+      transition: 0.25s;
+
+      position: relative;
+
+      &::after{
+         display: block;
+         position: absolute;
+         left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
+         width: 0;/*задаём длинну линии до наведения курсора*/
+         height: 1px; /*задаём ширину линии*/
+         background-color: $secondary-color; /*задаём цвет линии*/
+         content: "";
+         transition: width 0.3s ease-out; /*задаём время анимации*/
+
+      }
+
+      &:hover::after{
+         width: 100%;
+      }
+       
+      &:hover{
+         cursor: pointer;
+         opacity: 1;
+      }
+   }
+}
+
+.about-section{
+   margin-bottom: 150px;
+
+   p{
+      font-size: 14px;
+      line-height: 18px;
+   
+      color: $primary-color;
+
+      margin-bottom: 30px;
+   }
+   div{
+      margin-top: -10px;
+      span{
+         font-family: $secondary-font;
+         font-size: 45px;
+         line-height: 55px;
+
+         color: $secondary-color;
+      }
+      .info{
+         font-weight: 400;
+         font-size: 14px;
+         line-height: 18px;
+         margin-bottom: 25px;
+
+         color: $primary-color;
+      }
+
+      @media (max-width: 576px) {
+         margin-top: 10px;
+       }
+   }
+  
+}
+
+.entertainments-section{
+   margin-bottom: 150px;
+
+   @media (max-width: 576px) {
+      margin-top: 100px;
+   }
+
+   h2{
+      font-family: $secondary-font;
+      font-size: 33px;
+      line-height: 40px;
+
+      color: $primary-color;
+
+      @media (max-width: 576px) {
+         text-align: center;
+      }
+   }
+
+
+   p{
+      font-size: 14px;
+      line-height: 17px;
+
+      color: $primary-color;
+
+      margin-bottom: 20px;
+   }
+}
+
+.entertainments{
+   display: flex;
+   justify-content: center;
+}
+.options {
+   margin-top: 85px;
+   display:flex;
+   flex-direction:row;
+   align-items:stretch;
+   overflow:hidden;
+
+   min-width:600px;
+   max-width:900px;
+   width:calc(100% - 100px);
+   
+   height:400px;
+   
+   @for $i from 1 through 4 {
+      @media screen and (max-width:#{798-$i*80}px) {
+         min-width:600px - $i*80;
+         .option:nth-child(#{6-$i}) {
+            display:none;
+         }
+      }
+   }
+   
+   .option {
+      position: relative;
+      overflow:hidden;
+
+      min-width:60px;
+      margin:10px;
+
+      background:var(--optionBackground);
+      background-size:auto 120%;
+      background-position:center;
+
+      cursor: pointer;
+
+      transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+
+      &.active {
+         flex-grow:10000;
+         transform:scale(1);
+         
+         max-width:600px;
+         margin:0px;
+         border-radius:40px;
+         
+         background-size:auto 100%;
+         .shadow {
+            box-shadow:inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+         }
+         .label {
+            bottom:20px;
+            left:20px;
+            .info >div {
+               left:0px;
+               opacity:1;
+            }
+         }
+         &:active {
+            transform:scale(0.9);
+         }
+      }
+      &:not(.active) {
+         flex-grow:1;
+         
+         border-radius:30px;
+         .shadow {
+            bottom:-40px;
+            box-shadow:inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
+         }
+         .label {
+            bottom:10px;
+            left:10px;
+            .info >div {
+               left:20px;
+               opacity:0;
+            }
+         }
+      }
+      .shadow {
+
+         background: linear-gradient(0deg, rgba(53, 53, 53, 0.84) 0%, rgba(53, 53, 53, 0) 33.13%);
+         width: 100%;
+         height: 100%;
+         
+         transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+      }
+      .label {
+         display:flex;
+         position: absolute;
+         right:0px;
+
+         height:40px;
+         transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+         .icon {
+            display:flex;
+            flex-direction:row;
+            justify-content:center;
+            align-items:center;
+            
+            min-width:40px;
+            max-width:40px;
+            height:40px;
+            border-radius:100%;
+
+            background-color:white;
+         }
+         .info {
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            
+            margin-left:10px;
+            
+            color:white;
+            
+            white-space: pre;
+            >div {
+               position: relative;
+               
+               transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
+            }
+            .main {
+               font-weight:bold;
+               font-size:1.2rem;
+            }
+            .sub {
+               transition-delay:.1s;
+
+               @media (max-width: 992px) {
+                  display: none;
+               }
+            }
+         }
+      }
+   }
+}
+
+.work-times-title{
+   margin-top: 180px;
+
+   @media (max-width: 576px) {
+      margin-top: 120px;
+   }
+
+   h2{
+      font-family: $secondary-font;
+      font-size: 33px;
+      line-height: 40px;
+   
+      color: $primary-color;
+
+      text-align: center;
+   }
+}
+
+.timetable-section{   
+   background-color: $primary-color;
+   padding: 55px;
+   margin-top: 35px;
+
+   .hotel-gazebo-times,
+   .rental-administration-times{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+
+      @media (max-width: 576px) {
+         padding: 0 50px;
+         justify-content: center;
+      }
+
+      h4{
+         font-weight: 500;
+         font-size: 16px;
+         line-height: 19px;
+
+         color: $light-color;
+
+         margin-bottom: 25px;
+         text-align: center;
+
+         @media (max-width: 576px) {
+           margin-top: 30px;
+          }
+
+      }
+      p{
+         font-weight: 400;
+         font-size: 14px;
+         line-height: 17px;
+
+         color: $light-color;
+
+         text-align: center;
+      }
+   }
+}
+
+
+.scheme-section{
+   margin-top: 189px;
+   margin-bottom: 130px;
+
+   @media (max-width: 576px) {
+      margin-top: 100px;
+   }
+
+   h2{
+      font-family: $secondary-font;
+      font-size: 33px;
+      line-height: 40px;
+      text-align: center;
+   
+      color: $primary-color;
+
+
+      margin-bottom: 30px;
+
+      @media (max-width: 576px) {
+         font-size: 25px;
+         line-height: 33px;
+      }
+   }
+   .scheme{
+      display: flex;
+      justify-content: center;
+
+      position: relative;
+
+      img{
+         width: 100%;
+      }
+   }
+
+   .numbering{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      margin-top: 30px;
+
+      .number-item{
+         display: flex;
+         align-items: baseline;
+         margin-bottom: 8px;
+         .num{
+            width: 34px;
+            height: 34px;
+            border: 3px solid $secondary-color;
+            border-radius: 50%;
+
+            text-align: center; 
+            
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 28px;
+            color: $primary-color;
+
+            margin-right: 9px;
+
+            @media (max-width: 576px) {
+               font-size: 12px;
+               line-height: 24px;
+               width: 30px;
+               height: 30px;
+            }
+            
+         }
+
+         @for $i from 1 through 10 {
+            .num-#{$i}{
+               border-color: nth($colorList, $i);
+            }
+         }
+         p{
+            font-size: 14px;
+            color: $primary-color;
+
+            @media (max-width: 576px) {
+               font-size: 12px;
+            }
+         }
+      }
+   }
+}
+
+@import "preloader.scss";
+@import "footer.scss";

@@ -1,0 +1,24 @@
+// Цвета сайта
+$primary-color: #353535;
+$secondary-color: #C10000;
+$light-color: #fff;
+
+// Шрифты сайта
+$primary-font: Gilroy;
+$secondary-font: CormorantSC-Bold;
+
+// Раздел услуг для tabs
+$tab-count: 5;
+
+/* Адаптив точки слома */
+$breakpoints: (
+  medium: #{$tab-count*250px},
+  small: #{$tab-count*150px}
+);
+
+$label-selector: "~ ul > li";
+$slider-selector: "~ .slider";
+$content-selector: "~ .content > section";
+
+// Список цветов для схемы сайта (О нас)
+$colorList: #E88787 #3B9B00 #FCFF54 #656D78 #69A3BA #0078DB #C3A60D #828282 #45B0A2 #DC4F5E;

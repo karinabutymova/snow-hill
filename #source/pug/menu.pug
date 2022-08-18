@@ -1,0 +1,30 @@
+nav
+  .container
+    .full-menu
+      .row.justify-content-between
+        //-  Вызов миксина для пунктов меню
+        +listmenu('../pages/about.html', 'О нас')
+        +listmenu('../pages/services.html?type=winter', 'Услуги и цены')
+        div(class="src-block col-2")
+          a(href="/index.html" class="logo-src")
+            img(src="/img/icons/logo.svg" height="50px" alt="logo.svg")
+        +listmenu('../pages/contacts.html', 'Контакты')
+        +listmenu('../pages/booking.html', 'Заявка онлайн')
+    .mobile-menu 
+      .row.justify-content-between
+        div(class="src-block col-2")
+          a(href="/index.html" class="logo-src")
+            img(src="/img/icons/logo.svg" height="45px" alt="logo.svg")
+      input(type="checkbox" id="checkbox" class="mobile-menu__checkbox")
+      label(for="checkbox" class="mobile-menu__btn")
+        .mobile-menu__icon
+      .mobile-menu__container
+        ul(class="mobile-menu__list")
+          +listmobile-menu('../pages/about.html', 'О нас')
+          +listmobile-menu('../pages/services.html?type=winter', 'Услуги и цены')
+          +listmobile-menu('../pages/contacts.html', 'Контакты')
+          +listmobile-menu('../pages/booking.html', 'Заявка онлайн')
+
+
+
+

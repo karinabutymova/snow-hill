@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/booking.css">
+    <link rel="shortcut icon" href="../img/icons/favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Заявка онлайн</title>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <div class="full-menu">
+          <div class="row justify-content-between">
+              <div class="src-block col-2"><a class="src" href="../pages/about.html">О нас</a></div>
+              <div class="src-block col-2"><a class="src" href="../pages/services.html?type=winter">Услуги и цены</a></div>
+            <div class="src-block col-2"><a class="logo-src" href="/index.html"><img src="/img/icons/logo.svg" height="50px" alt="logo.svg"></a></div>
+              <div class="src-block col-2"><a class="src" href="../pages/contacts.html">Контакты</a></div>
+              <div class="src-block col-2"><a class="src" href="../pages/booking.html">Заявка онлайн</a></div>
+          </div>
+        </div>
+        <div class="mobile-menu"> 
+          <div class="row justify-content-between">
+            <div class="src-block col-2"><a class="logo-src" href="/index.html"><img src="/img/icons/logo.svg" height="45px" alt="logo.svg"></a></div>
+          </div>
+          <input class="mobile-menu__checkbox" type="checkbox" id="checkbox">
+          <label class="mobile-menu__btn" for="checkbox">
+            <div class="mobile-menu__icon"></div>
+          </label>
+          <div class="mobile-menu__container">
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item"><a class="mobile-menu__link" href="../pages/about.html">О нас</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__link" href="../pages/services.html?type=winter">Услуги и цены</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__link" href="../pages/contacts.html">Контакты</a></li>
+                <li class="mobile-menu__item"><a class="mobile-menu__link" href="../pages/booking.html">Заявка онлайн</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+      <section class="pagename-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 id="pagename">Заявка на бронирование онлайн</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+    <section class="form-section">
+      <form>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-4">
+              <div>
+                <p>ФИО</p>
+                <input name="name" type="text">
+                <p class="error">error</p>
+              </div>
+              <div>
+                <p>Телефон</p>
+                <input name="number" type="text" placeholder="+79371234567">
+                <p class="error">error</p>
+              </div>
+              <div>
+                <p>Почта</p>
+                <input name="email" type="text" placeholder="emailaddress@example.com">
+                <p class="error">error</p>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div>
+                <p>Дата заезда</p>
+                <input name="date-in" type="date" onkeydown="return false">
+                <p class="error">error</p>
+              </div>
+              <div>
+                <p>Дата выезда</p>
+                <input name="date-out" type="date" onkeydown="return false">
+                <p class="error">error</p>
+              </div>
+              <div>
+                <p>Количество человек</p>
+                <input name="count" type="number" min="1">
+                <p class="error">error</p>
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+              <button class="submit button" type="submit">Отправить</button>
+              <p class="form-info">После получения заявки специалисты отдела бронирования свяжутся с&nbsp;вами для&nbsp;уточнения деталей и&nbsp;подбора наиболее оптимального варианта размещения</p>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+      <div class="modal" id="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Заявка принята</h2><span class="close">&times;</span>
+          </div>
+          <div class="modal-body">
+            <p>Наши специалисты свяжутся с вами в самое ближайшее время</p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+  </body>
+  <section class="footer-section">
+    <footer>
+      <div class="container">
+        <div class="row justify-content-center menu-links">
+          <div class="col-12 col-lg footer-link"><a href="../pages/services.html?type=winter">Зимний период</a></div>
+          <div class="col-12 col-lg footer-link"><a href="../pages/services.html?type=summer">Летний период</a></div>
+          <div class="col-12 col-lg footer-link"><a href="../pages/services.html?type=hotels">Проживание</a></div>
+          <div class="col-12 col-lg footer-link"><a href="../pages/services.html?type=bathhouses">Бани</a></div>
+          <div class="col-12 col-lg footer-link"><a href="../pages/services.html?type=restaurants">Кафе и&nbsp;рестораны</a></div>
+        </div>
+        <div class="row address-info">
+          <div class="col-12 col-lg address"><img src="/img/icons/map-pin.svg" alt="address">
+            <p>Краснодарский&nbsp;край, г.&nbsp;Сочи, Адлерский&nbsp;район, с.&nbsp;Эстосадок, ул.&nbsp;Олимпийская, д.&nbsp;35</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg">
+            <div class="conf-social">
+              <p class="conf">© 2022 Бутымова Карина 11 группа </p>
+              <div class="footer-logo"><img src="/img/icons/footer-logo.svg" alt="footer-logo"></div>
+              <div class="social-media"><a class="twitter icon" href="#"><img src="/img/icons/twitter-icon.svg"></a><a class="youtube icon" href="#"><img src="/img/icons/youtube-icon.svg"></a><a class="facebook icon" href="#"><img src="/img/icons/facebook-icon.svg"></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js"></script>
+  <script src="/js/jquery-1.11.3.min.js"></script>
+  <script src="/js/booking.js"></script>
+</html>

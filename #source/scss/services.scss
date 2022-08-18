@@ -1,0 +1,328 @@
+@import "menu.scss";
+
+.pagename-section{
+   width: 100%;
+   background-color: $primary-color;
+   padding: 57px 0;
+
+   margin-bottom: 30px;
+
+   @media (max-width: 992px) {
+      margin-top: 90px;
+    }
+
+   h1{
+      font-family: $secondary-font;
+      font-size: 38px;
+      line-height: 46px;
+      text-align: center;
+
+      color: $light-color;
+   }
+}
+
+
+@mixin tabs(
+  $label-selector: $label-selector,
+  $slider-selector: $slider-selector,
+  $content-selector: $content-selector) {
+    
+  @for $i from 1 through $tab-count {
+    &:nth-of-type(#{$i}):checked {
+      #{$label-selector}:nth-child(#{$i}) {
+        @content;
+      }
+
+      #{$slider-selector} {
+        transform: translateX(#{100% * ($i - 1)});
+      }
+
+      #{$content-selector}:nth-child(#{$i}) {
+        display: block;
+      }
+    }
+  }
+}
+
+
+.tabs {
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+  background:$light-color;
+  padding: 50px;
+  padding-bottom: 80px;
+  width: 100%;
+  border-radius: 5px;
+  min-width: #{$tab-count * 60px};
+  input[name="tab-control"] {
+    display: none;
+  }
+  
+  .content section h2,
+  ul li label {
+    font-weight: 500;
+    font-size: 16px;
+    color: $secondary-color;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    
+    li {
+      box-sizing: border-box;
+      flex: 1;
+      width: #{100%/$tab-count};
+      padding: 0 10px;
+      text-align: center;
+      
+      label {
+        transition: all 0.3s ease-in-out;
+        color: #8B8B8B;
+        padding: 5px auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        white-space: nowrap;
+        
+        br {
+          display: none;
+        }
+        
+        .filter-red {
+          height: 19px;
+          vertical-align: bottom;
+          margin-right: 6px;
+          margin-bottom: 3px;
+          transition: all 0.2s ease-in-out;
+        }
+        
+        &:hover,
+        &:focus,
+        &:active {
+          outline: 0;
+          color: lighten($primary-color, 15%);
+         .filter-red{
+            filter: invert(75%) sepia(7%) saturate(0%) hue-rotate(244deg) brightness(90%) contrast(97%);         }
+        }
+      }
+    }
+  }
+  
+  .slider {
+    position: relative;
+    width: #{100%/$tab-count};
+    transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+    .indicator {
+      position: relative;
+      width: 55px;
+      max-width: 100%;
+      margin: 0 auto;
+      height: 3px;
+      background: $secondary-color;
+    }
+
+  }
+  
+  .content {
+    margin-top: 30px;
+    
+    section {
+      display: none;
+      animation: {
+        name: content;
+        direction: normal;
+        duration: 0.3s;
+        timing-function: ease-in-out;
+        iteration-count: 1;
+      }
+      line-height: 1.4;
+      
+      h2 {
+        color: $secondary-color;
+        display: none;
+        &::after {
+          content: "";
+          position: relative;
+          display: block;
+          width: 30px;
+          height: 3px;
+          background: $secondary-color;
+          margin-top: 5px;
+          left: 1px;
+        }
+      }
+    }
+  }
+  
+  input[name="tab-control"] {
+    @include tabs {
+      > label {
+        cursor: default;
+        color: $secondary-color;
+        
+        .filter-red{
+            filter: invert(13%) sepia(43%) saturate(7489%) hue-rotate(356deg) brightness(95%) contrast(119%);
+        }
+        
+        @media (max-width: map-get($breakpoints, small)) {
+          background: rgba(0, 0, 0, 0.08);
+        }
+      }
+    }
+  }
+
+  @keyframes content {
+    from {
+      opacity: 0;
+      transform: translateY(5%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  
+  @media (max-width: map-get($breakpoints, medium)) {
+    ul li label {
+      white-space: initial;
+      
+      br {
+        display: initial;
+      }
+      
+      .filter-red {
+        height: 1.5em;
+      }
+    }
+  }
+  
+  @media (max-width: map-get($breakpoints, small)) {
+    ul li label {
+      padding: 5px;
+      border-radius: 5px;
+      
+      span {
+        display: none;
+      }
+    }
+    
+    .slider {
+      display: none;
+    }
+    
+    .content {
+      margin-top: 20px; 
+      section h2 {
+        display: block;
+      }
+    }
+  }
+}
+
+
+// Карточки услуг 
+.cards{
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+   justify-content: center;
+   grid-row-gap: 30px;
+}
+.card {
+   position: relative;
+   width: 350px;
+   height: 640px;
+   margin: 0 auto;
+
+   .type{
+      font-size: 18px;
+      margin-bottom: 20px;
+
+      &:not(:first-child){
+         margin-top: 40px;
+      }
+   }
+   .title{
+      font-size: 25px;
+      font-weight: 500;
+      text-align: center;
+
+      transition: all 0.5s;
+   }
+   .type-info{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: -10px;
+
+
+      p{
+         &:first-child{
+            margin-right: 45px;
+         }
+      }
+   }
+
+   .face {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items:flex-end;
+
+     padding: 100px 8px;
+
+     background-color: $primary-color;
+     color: $light-color;
+
+     &.face1 {
+       padding: 20px;
+       align-items:center;
+
+     }
+
+     &.face2 {
+       transition: 0.5s;
+     }
+
+     
+   }
+ }
+
+ .card:hover .face.face2,
+ .card:focus .face.face2 {
+   height: 55px;
+   padding: 0 8px;
+   align-items: center;
+
+   .title{
+      font-size: 18px;
+      color: $light-color;
+   }
+   opacity: 0.9;
+
+ }
+ 
+ .face.face2 {
+   background-repeat: no-repeat;
+   background-position: center;
+ }
+
+
+ @import "preloader.scss";
+ 
+@import "footer.scss";
+
